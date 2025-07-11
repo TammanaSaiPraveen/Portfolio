@@ -3,12 +3,20 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 
-import portfolioImg from "../assets/projects/portfolio.png"
-import ecommerceImg from "../assets/projects/ecommerce.png"
-import languageTranslatorImg from "../assets/projects/language-translator.png"
-import weatherAppImg from "../assets/projects/weather-app.png"
-import todoAppImg from "../assets/projects/todo-app.png"
-import chatbotImg from "../assets/projects/chatbot.png"
+// import portfolioImg from "../assets/projects/portfolio.png"
+// import ecommerceImg from "../assets/projects/ecommerce.png"
+// import languageTranslatorImg from "../assets/projects/language-translator.png"
+// import weatherAppImg from "../assets/projects/weather-app.png"
+// import todoAppImg from "../assets/projects/todo-app.png"
+// import chatbotImg from "../assets/projects/chatbot.png"
+
+import portfolioImg from "../assets/Projects/portfolio.png"
+import ecommerceImg from "../assets/Projects/ecommerce.png"
+import languageTranslatorImg from "../assets/Projects/language-translator.png"
+import weatherAppImg from "../assets/Projects/weather-app.png"
+import todoAppImg from "../assets/Projects/todo-app.png"
+import chatbotImg from "../assets/Projects/chatbot.png"
+
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all")
