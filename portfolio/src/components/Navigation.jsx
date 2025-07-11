@@ -89,13 +89,14 @@ const Navigation = () => {
           {/* Logo */}
           <a href="#home" className="font-bold text-2xl tracking-tight" style={{ color: 'var(--text-color)' }}>Portfolio</a>
           {/* Desktop Nav */}
-          <div className="flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 className="text-base font-medium hover:text-gray-900 transition-colors"
                 style={{ color: 'var(--text-color)' }}
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </a>
@@ -108,9 +109,45 @@ const Navigation = () => {
             </button>
           </div>
           {/* Mobile Nav Button */}
-
+          <button
+            className="md:hidden flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            {menuOpen ? (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
           {/* Mobile Nav Menu */}
-
+          {menuOpen && (
+            <div className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-gray-900 shadow-lg z-40 animate-fadeIn">
+              <div className="flex flex-col items-center gap-6 py-6">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-lg font-medium hover:text-blue-600 transition-colors"
+                    style={{ color: 'var(--text-color)' }}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <button
+                  onClick={() => { setShowHireModal(true); setMenuOpen(false); }}
+                  className="bg-blue-600 text-white font-semibold rounded px-8 py-2 hover:bg-blue-700 transition-colors"
+                >
+                  Hire Me
+                </button>
+              </div>
+            </div>
+          )}
         </nav>
       </motion.header>
 
